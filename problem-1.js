@@ -16,12 +16,9 @@ function getCharsFromStrings(arrOfStrings) {
         charsObj[char] = '';
     }
 
-    /* Here I'm removing the empty char cause I think we don't need to log it*/
-    delete charsObj[' '];
-
     /*
     * Returning the keys of the Obj which should be:
-    *  ['h', 'e', 'l', 'o','w', 'r', 'd', 't', 'i', 's', 'a', 'n', 'x', 'm', 'p']
+    *  ['h', 'e', 'l', 'o', ' ', 'w', 'r', 'd', 't', 'i', 's', 'a', 'n', 'x', 'm', 'p']
     * */
     return Object.keys(charsObj);
 
@@ -36,9 +33,7 @@ console.log('The result is:', getCharsFromStrings(['hello world', 'this is a tes
 *
     * function getCharsFromStrings(arrOfStrings) {
     *   const chars = arrOfStrings.join(' ').split('');
-    *   const uniqueChars = new Set(chars);
-    *   uniqueChars.delete(' ');
-    *   return [...uniqueChars];
+    *   return [...new Set(chars)];
     * }
 *
 * Set Object, from MDN doc:
